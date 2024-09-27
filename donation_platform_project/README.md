@@ -42,4 +42,4 @@ The primary aim of Kodecamp X is to empower individuals to learn at their own pa
   - GET /doantions/donation-reference/:reference: for verification of payment towards a cause.
 
 ### HOSTED LINK
-[x-project](https://x-project-be.onrender.com)
+[Donation-platform](https://donation-platform-be.onrender.com)
