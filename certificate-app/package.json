@@ -1,0 +1,23 @@
+{
+  "name": "certificate-app",
+  "version": "1.0.0",
+  "description": "certificate generation",
+  "type": "module",
+  "main": "app.js",
+  "scripts": {
+    "start": "nodemon app.js --watch",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Fakile Temitope",
+  "license": "MIT",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.6.3",
+    "nodemailer": "^6.9.15",
+    "nodemon": "^3.1.7",
+    "pdfkit": "^0.15.0"
+  }
+}

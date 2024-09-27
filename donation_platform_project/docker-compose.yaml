@@ -1,0 +1,33 @@
+# Use root/example as user/password credentials
+services:
+
+  mongo:
+    image: mongo:6
+    restart: always
+    ports:
+      - 27017:27017
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: temmytope
+      MONGO_INITDB_ROOT_PASSWORD: temmytope
+    volumes:
+      - /home/temmytope/docker_persistent_storage/donation_db_data:/data/db
+
+  mongo-express:
+    image: mongo-express:latest
+    restart: always
+    ports:
+      - 8081:8081
+    environment:
+      ME_CONFIG_MONGODB_ADMINUSERNAME: temmytope
+      ME_CONFIG_MONGODB_ADMINPASSWORD: temmytope
+      ME_CONFIG_MONGODB_URL: mongodb://temmytope:temmytope@mongo:27017/
+      ME_CONFIG_BASICAUTH: false
+      ME_CONFIG_OPTIONS_EDITORTHEME: ambiance
+      ME_CONFIG_MONGODB_ENABLE_ADMIN: true
+
+# volumes:
+#   db_data:
+#     driver: local # Define the driver and options under the volume name
+#     driver_opts:
+#       type: none
+#       device: /home/temmytope/docker_persistent_storage/donation_db_data

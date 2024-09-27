@@ -1,0 +1,28 @@
+import { verify_token } from "../utils/token.js"
+
+
+export const authUser = async(request, response, next) =>{
+    try{
+        const token =  request.header('Authorization')?.split(" ")[1]
+        if(token){
+            const verify = await verify_token(token)
+            if(verify.success == true){
+                request.user_data = verify.data.user
+                next()
+            }
+            else{
+                return response.status(401).send("expired token or incorrect token provided")
+            }
+
+        }
+        else{
+            return response.status(401).send("Access token not provided")
+        }
+
+    }
+    catch(error){
+        return response.status(401).send(`${error}`)
+    }
+    
+    
+}
